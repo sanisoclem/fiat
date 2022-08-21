@@ -1,0 +1,15 @@
+[package]
+name = "let-it-be-done"
+version = "0.1.0"
+authors = ["sanisoclem <me@jerahmeelcosinas.net>"]
+edition = "2021"
+
+[workspace]
+members = ["crates/*"]
+
+[dependencies]
+bevy = "0.8"
+utils = { path = "./crates/utils", version = "0.1.0" }
+
+[profile.dev.package."*"]
+opt-level = 3
