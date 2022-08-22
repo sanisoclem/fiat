@@ -11,6 +11,11 @@ members = ["crates/*"]
 bevy = "0.8"
 game_utils = { path = "./crates/utils", version = "0.1.0" }
 game_audio = { path = "./crates/audio", version = "0.1.0" }
+game_animation = { path = "./crates/animation", version = "0.1.0" }
+game_asset = { path = "./crates/asset", version = "0.1.0" }
+game_controller = { path = "./crates/controller", version = "0.1.0" }
+game_level_gen = { path = "./crates/level_gen", version = "0.1.0" }
+game_data = { path = "./crates/data", version = "0.1.0" }
 
 [profile.dev.package."*"]
 opt-level = 3
