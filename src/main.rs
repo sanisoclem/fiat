@@ -1,4 +1,4 @@
-use bevy::prelude::*;
+use bevy::{prelude::*, render::texture::ImageSettings};
 
 #[derive(Clone, Eq, PartialEq, Debug, Hash, Copy)]
 enum GameState {
@@ -13,6 +13,7 @@ mod splash;
 
 fn main() {
   App::new()
+    .insert_resource(ImageSettings::default_nearest())
     .insert_resource(WindowDescriptor {
       title: "Let it be done!".to_string(),
       width: 1920.,
