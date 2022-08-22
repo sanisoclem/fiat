@@ -7,6 +7,7 @@ enum GameState {
   Game,
 }
 
+mod main_menu;
 mod splash;
 
 fn main() {
@@ -30,7 +31,10 @@ fn main() {
       4.0,
     ))
     .add_plugin(game_audio::AudioPlugin)
-
+    .add_plugin(main_menu::MainMenuPlugin::<GameState>::create(
+      GameState::Menu,
+      GameState::Game,
+    ))
     // .add_plugin(systems::AnimationPlugin)
     // .add_plugin(systems::CombatPlugin)
     // //.add_plugin(systems::DebugPlugin)

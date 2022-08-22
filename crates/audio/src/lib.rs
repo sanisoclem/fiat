@@ -1,23 +1,26 @@
 use std::collections::HashMap;
 
-use bevy::{prelude::*, audio::AudioSink};
+use bevy::{audio::AudioSink, prelude::*};
 
 #[derive(Clone, Debug)]
 pub enum AudioCommand {
   Play(String),
   PlayInLayer(String, String),
-  StopLayer(String)
+  StopLayer(String),
 }
 
 pub struct SoundController {
-  layers: HashMap<String, Handle<AudioSink>>
+  layers: HashMap<String, Handle<AudioSink>>,
 }
 
 pub struct AudioPlugin;
 impl Plugin for AudioPlugin {
   fn build(&self, app: &mut App) {
     app
-      .insert_resource(SoundController { layers: HashMap::new() })
+      .add_event::<AudioCommand>()
+      .insert_resource(SoundController {
+        layers: HashMap::new(),
+      })
       .add_system(play_audio);
   }
 }
@@ -34,7 +37,7 @@ fn play_audio(
       AudioCommand::Play(path) => {
         let src = asset_server.load(path);
         audio.play(src);
-      },
+      }
       AudioCommand::PlayInLayer(path, layer) => {
         let src = asset_server.load(path);
         let handle = audio_sinks.get_handle(audio.play(src));
@@ -43,8 +46,7 @@ fn play_audio(
             sink.stop();
           }
         }
-
-      },
+      }
       AudioCommand::StopLayer(layer) => {
         if let Some(prev) = controller.layers.get(layer) {
           if let Some(sink) = audio_sinks.get(&prev) {

@@ -1,6 +1,6 @@
 use bevy::prelude::*;
-use std::{fmt::Debug, hash::Hash};
 use game_utils::cleanup_system;
+use std::{fmt::Debug, hash::Hash};
 
 // Tag component used to tag entities added on the splash screen
 #[derive(Component)]
@@ -25,7 +25,7 @@ where
 {
   fn build(&self, app: &mut App) {
     app
-      .insert_resource(self.config.clone()) // prevents blurry sprites
+      .insert_resource(self.config.clone())
       .add_system_set(SystemSet::on_enter(self.config.splash_state).with_system(Self::splash_setup))
       .add_system_set(SystemSet::on_update(self.config.splash_state).with_system(Self::countdown))
       .add_system_set(
