@@ -1468,15 +1468,13 @@ dependencies = [
 [[package]]
 name = "game_data"
 version = "0.1.0"
-dependencies = [
- "bevy",
-]
 
 [[package]]
 name = "game_level_gen"
 version = "0.1.0"
 dependencies = [
  "bevy",
+ "futures-lite",
 ]
 
 [[package]]

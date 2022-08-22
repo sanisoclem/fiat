@@ -61,8 +61,7 @@ where
   fn splash_setup(
     splash_config: Res<SplashScreenConfig<T>>,
     asset_server: Res<AssetServer>,
-    mut commands: Commands,
-    mut texture_atlases: ResMut<Assets<TextureAtlas>>,
+    mut commands: Commands
   ) {
     commands
       .spawn_bundle(Camera2dBundle::default())
