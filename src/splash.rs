@@ -68,6 +68,13 @@ where
       .spawn_bundle(Camera2dBundle::default())
       .insert(OnSplashScreen);
 
+    commands
+      .spawn_bundle(SpriteBundle {
+        texture: asset_server.load("splash.png"),
+        ..default()
+      })
+      .insert(OnSplashScreen);
+
     commands.insert_resource(SplashTimer(Timer::from_seconds(
       splash_config.duration,
       false,

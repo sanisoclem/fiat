@@ -107,8 +107,8 @@ fn button_system(
 
 fn main_menu_setup(mut commands: Commands, asset_server: Res<AssetServer>) {
   commands
-      .spawn_bundle(Camera2dBundle::default())
-      .insert(OnMainMenuScreen);
+    .spawn_bundle(Camera2dBundle::default())
+    .insert(OnMainMenuScreen);
 
   let font = asset_server.load("ui/Shizuru-Regular.ttf");
   // Common style for all buttons on the screen

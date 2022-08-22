@@ -7,6 +7,7 @@ enum GameState {
   Game,
 }
 
+mod game;
 mod main_menu;
 mod splash;
 
@@ -35,21 +36,6 @@ fn main() {
       GameState::Menu,
       GameState::Game,
     ))
-    // .add_plugin(systems::AnimationPlugin)
-    // .add_plugin(systems::CombatPlugin)
-    // //.add_plugin(systems::DebugPlugin)
-    // //.add_plugin(InspectorPlugin::<Data>::new())
-    // //.add_plugin(ShapePlugin)
-    // .add_plugin(systems::PhysicsPlugin)
-    // .add_plugin(systems::MousePlugin)
-    // .add_plugin(systems::MovementPlugin)
-    // .add_plugin(splash::SplashPlugin)
-    // .add_plugin(menu::MenuPlugin)
-    // .add_plugin(game::GamePlugin)
-    // .add_plugin(EditorPlugin)
-    .add_startup_system(setup)
+    .add_plugin(game::GamePlugin::<GameState>::create(GameState::Game))
     .run();
 }
-
-// As there isn't an actual game, setup is just adding a `UiCameraBundle`
-fn setup(mut commands: Commands) {}
