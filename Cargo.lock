@@ -1437,6 +1437,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "game_audio"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
+name = "game_utils"
+version = "0.1.0"
+dependencies = [
+ "bevy",
+]
+
+[[package]]
 name = "getrandom"
 version = "0.2.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1844,7 +1858,8 @@ name = "let-it-be-done"
 version = "0.1.0"
 dependencies = [
  "bevy",
- "utils",
+ "game_audio",
+ "game_utils",
 ]
 
 [[package]]
@@ -2855,13 +2870,6 @@ name = "unicode-xid"
 version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "957e51f3646910546462e67d5f7599b9e4fb8acdd304b087a6494730f9eebf04"
-
-[[package]]
-name = "utils"
-version = "0.1.0"
-dependencies = [
- "bevy",
-]
 
 [[package]]
 name = "uuid"

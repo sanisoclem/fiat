@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 use std::{fmt::Debug, hash::Hash};
-use utils::cleanup_system;
+use game_utils::cleanup_system;
 
 // Tag component used to tag entities added on the splash screen
 #[derive(Component)]

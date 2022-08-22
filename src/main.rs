@@ -29,7 +29,8 @@ fn main() {
       GameState::Menu,
       4.0,
     ))
-    // .add_plugin(systems::AudioPlugin)
+    .add_plugin(game_audio::AudioPlugin)
+
     // .add_plugin(systems::AnimationPlugin)
     // .add_plugin(systems::CombatPlugin)
     // //.add_plugin(systems::DebugPlugin)

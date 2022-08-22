@@ -9,7 +9,8 @@ members = ["crates/*"]
 
 [dependencies]
 bevy = "0.8"
-utils = { path = "./crates/utils", version = "0.1.0" }
+game_utils = { path = "./crates/utils", version = "0.1.0" }
+game_audio = { path = "./crates/audio", version = "0.1.0" }
 
 [profile.dev.package."*"]
 opt-level = 3
