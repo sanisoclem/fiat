@@ -3,6 +3,7 @@ use bevy::{
   sprite::MaterialMesh2dBundle,
   tasks::{AsyncComputeTaskPool, Task},
 };
+use heron::prelude::*;
 use futures_lite::future;
 
 #[derive(Component, Default)]
@@ -36,17 +37,29 @@ fn spawn_build_tasks(
     let thread_pool = AsyncComputeTaskPool::get();
     let w = gen_config.max_width as f32 * 32.;
     let h = gen_config.min_height as f32 * 32.;
-    let task = thread_pool.spawn(async move {
-      // TODO: generate level
+    // let task = thread_pool.spawn(async move {
+    //   // TODO: generate level
 
-      Mesh::from(shape::Quad {
-        size: Vec2::new(w, h),
-        flip: false,
-      })
-    });
+    //   Mesh::from(shape::Quad {
+    //     size: Vec2::new(w, h),
+    //     flip: false,
+    //   })
+    // });
 
-    // Spawn new entity and add our new task as a component
-    commands.entity(entity).insert(LevelPending(task));
+    // // Spawn new entity and add our new task as a component
+    // commands.entity(entity).insert(LevelPending(task));
+
+    // .insert(RigidBody::Static)
+
+    //     // Attach a collision shape
+    //     .insert(CollisionShape::Sphere { radius: 10.0 })
+
+    //     // Optionally add other useful components...
+    //     .insert(Velocity::from_linear(Vec3::X * 2.0))
+    //     .insert(Acceleration::from_linear(Vec3::X * 1.0))
+    //     .insert(PhysicMaterial { friction: 1.0, density: 10.0, ..Default::default() })
+    //     .insert(RotationConstraints::lock())
+    //     .insert(CollisionLayers::none().with_group(Layer::Player).with_mask(Layer::World));
   }
 }
 
