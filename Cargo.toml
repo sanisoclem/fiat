@@ -9,6 +9,7 @@ members = ["crates/*"]
 
 [dependencies]
 bevy = "0.8"
+heron = { version = "4.0.0", features = ["2d"] }
 game_utils = { path = "./crates/utils", version = "0.1.0" }
 game_audio = { path = "./crates/audio", version = "0.1.0" }
 game_animation = { path = "./crates/animation", version = "0.1.0" }
@@ -16,6 +17,7 @@ game_asset = { path = "./crates/asset", version = "0.1.0" }
 game_controller = { path = "./crates/controller", version = "0.1.0" }
 game_level_gen = { path = "./crates/level_gen", version = "0.1.0" }
 game_data = { path = "./crates/data", version = "0.1.0" }
+bevy_ecs_tilemap = { version = "0.7.0", features = ["atlas"] }
 
 [profile.dev.package."*"]
 opt-level = 3
